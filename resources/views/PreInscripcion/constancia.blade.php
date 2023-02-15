@@ -99,9 +99,9 @@
                         </div>
                         <div style="text-align: justify;">
                             <p style="line height:160%;">
-                                El que suscribe declara bajo juramento que la información consignada en el proceso 
-                                de inscripción es verdadera y de mi entera responsabilidad. Conozco y acepto lo 
-                                dispuesto en el Reglamento del <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I</span>
+                                EL QUE SUSCRIBE DECLARA BAJO JURAMENTO QUE LA INFORMACIÓN CONSIGNADA EN EL PROCESO 
+                                DE PRE INSCRIPCIÓN ES VERDADERO Y DE MI ENTERA RESPONSABILIDAD: CONOZCO Y ACEPT LO 
+                                DISPUESTO EN EL REGLAMENTO DEL <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I</span>
                                 APERSONARME A LA OFICINA DE DIRECION DE ADMISION PARA LA INSCRIPCION PRESENCIAL SEGÚN AL AREA QUE CORRESPONDA, 21 Y 22 
                                 DE FEBRERO AREA BIOMEDICAS, 23 Y 24 DE FEBRERO AREA INGENIERIA, 27 Y 28 DE FEBRERO AREA SOCIALES Y PRESENTAR LOS 
                                 SIGUIENTES DOCUMENTOS:
