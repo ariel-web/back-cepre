@@ -229,8 +229,8 @@ class PreIsncripcionController extends Controller
     public function constanciaPreInscripcion($dni)
     {
 
-        $res = DB::select('SELECT  programa_de_estudios.nombre AS programa, 
-        postulantes.nro_doc, postulantes.primer_apellido, postulantes.segundo_apellido, postulantes.nombres, postulantes.foto_url
+        $res = DB::select('SELECT  pre_inscripcion.codigo_seguridad as codigo, programa_de_estudios.nombre AS programa, 
+        postulantes.nro_doc, postulantes.primer_apellido, postulantes.segundo_apellido, postulantes.nombres
         FROM pre_inscripcion
         JOIN programa_de_estudios ON programa_de_estudios.id = pre_inscripcion.id_programa_estudios 
         JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id
