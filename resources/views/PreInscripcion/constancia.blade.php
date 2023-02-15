@@ -144,7 +144,7 @@
                 <tr>
                     <td align="right"> 
                         <span style="font-size:8pt;"><?php echo DNS1D::getBarcodeHTML('xkkjsd','C128');?> </span>
-                    </td>
+                    </td> 
                 </tr>
                 <tr>                    <td>
                     <div> xkkjsd </div>
