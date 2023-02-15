@@ -87,10 +87,10 @@ class PreguntaController extends Controller
                 foreach($request->respuestas as $res ) {
                     if($res != null){
                         $respuesta = DetalleExamenVocacional::create([ 
-                            'id_pregunta' => $res['ide'],
+                            'id_respuesta' => $res['ide'],
                             'id_pregunta' => $res['ideP'],
                             'codigo_pre' => $request->codigo,
-                            // 'dni' => null,   
+                            // 'dni' => null,   s
                             // 'id_examen' => , 
                         ]);
                     }
