@@ -9,7 +9,6 @@
 <body style="font-family: 'Gill Sans Extrabold', Helvetica, sans-serif; *{margin:0;padding:0}" >
     <div style="">
 
-
         <div>
             <table style="width:100%;">
                 <tr>
@@ -24,29 +23,19 @@
                     <td align="center" rowspan="1"> <img src="{{ public_path('imagenes/logoDAD.jpg')}}"  width="85"></td>
                 </tr>
             </table>
-            {{-- <table style="width:100%; bakcground:orange;">
-                <tr>
-                    <td width="130"></td>
-                    <td align="center" valign="center" style="font-size:14pt; font-weight:700;">EXAMEN EXTRAORDINARIO 2023</td>
-                    <td align="right" style="width:130px;"> 
-                        <span style="font-size:8pt;"><?php echo DNS1D::getBarcodeHTML($codigo,'C128');?> </span>
-                        <div> {{$codigo}} </div>
-                    </td>
-                </tr>
-            </table> --}}
         </div>
 
-        <div style="margin-top: 20px">  
+        <div style="margin-top: 10px; margin-bottom:20px">  
             <table style="width: 100%">
                 <tr>
-                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold"> EXAMEN DE ADMISIÓN CEPREUNA</span></div></td>
+                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold">PRE - INSCRIPCION</span></div></td>
                 </tr>
                 <tr>
-                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold"> PRESENCIAL 2023 - I</span></div></td>
+                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold">EXAMEN CEPRE-UNA 2023</span></div></td>
                 </tr>
-                <tr>
-                    <td align="center"><div style="text-align: center"><span style="font-size:18pt; font-weight:bold"> CONSTANCIA DE PRE - INSCRIPCIÓN</span></div></td>
-                </tr>
+                {{-- <tr>
+                    <td align="center"><div style="text-align: center"><span style="font-size:18pt; font-weight:bold">PRE - INSCRIPCIÓN</span></div></td>
+                </tr> --}}
             </table>
         </div>
 
@@ -58,9 +47,9 @@
                     <td style="" width="5px" align="left" valign="top">:</td>
                     <td style="" align="left" valign="top"><div style="text-align: justify; font-weight: regular;"><span>CEPREUNA</span></div></td>
                     <td style="" rowspan="7" align="right"  width="150px" valign="top">
-                        <div style="border:solid 1px black; padding:5px; width:125px">
+                        <div style="border:solid 1px white; padding:5px; width:125px">
                             <div style="overflow: hidden; height:150px; width:125px;">
-                                <img src="{{ "https://back-admi.arielluqu3.com/".$datos->foto_url }}" height="150">
+                                {{-- <img src="{{ "https://back-admi.arielluqu3.com/".$datos->foto_url }}" height="150"> --}}
                             </div>
                         </div>
                     </td>
@@ -109,13 +98,13 @@
                             </span>
                         </div>
                         <div style="text-align: justify;">
-                            <p>
+                            <p style="line height:160%;">
                                 El que suscribe declara bajo juramento que la información consignada en el proceso 
                                 de inscripción es verdadera y de mi entera responsabilidad. Conozco y acepto lo 
-                                dispuesto en el Reglamento del <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I</span> y acepto la revisión física estricta exhaustiva para el ingreso a la 
-                                Ciudad Universitaria a rendir el examen de admisión. En caso de alcanzar una 
-                                vacante, me comprometo a cumplir con lo dispuesto en el Reglamento. En señal de 
-                                conformidad firmo la presente constancia de inscripción
+                                dispuesto en el Reglamento del <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I</span>
+                                APERSONARME A LA OFICINA DE DIRECION DE ADMISION PARA LA INSCRIPCION PRESENCIAL SEGÚN AL AREA QUE CORRESPONDA, 21 Y 22 
+                                DE FEBRERO AREA BIOMEDICAS, 23 Y 24 DE FEBRERO AREA INGENIERIA, 27 Y 28 DE FEBRERO AREA SOCIALES Y PRESENTAR LOS 
+                                SIGUIENTES DOCUMENTOS:
                             </p>
                         </div>
                     </td>
@@ -148,6 +137,19 @@
 
                 </tr>
 
+            </table>
+
+
+            <table style="width:100%; bakcground:orange; margin-top:40px">
+                <tr>
+                    <td align="right"> 
+                        <span style="font-size:8pt;"><?php echo DNS1D::getBarcodeHTML('xkkjsd','C128');?> </span>
+                    </td>
+                </tr>
+                <tr>                    <td>
+                    <div> xkkjsd </div>
+                </td>
+</tr>
             </table>
         </div>
 
