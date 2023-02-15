@@ -91,7 +91,7 @@ class PreguntaController extends Controller
                             'id_pregunta' => $res['ideP'],
                             'codigo_pre' => $request->codigo,
                             // 'dni' => null,   
-                            // 'id_examen' => ,
+                            // 'id_examen' => , 
                         ]);
                     }
                 }
