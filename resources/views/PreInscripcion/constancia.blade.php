@@ -143,11 +143,11 @@
             <table style="width:100%; bakcground:orange; margin-top:40px">
                 <tr>
                     <td align="right"> 
-                        <span style="font-size:8pt;"><?php echo DNS1D::getBarcodeHTML('xkkjsd','C128');?> </span>
+                        <span style="font-size:8pt;"><?php echo DNS1D::getBarcodeHTML($datos->codigo,'C128');?> </span>
                     </td> 
                 </tr>
                 <tr>                    <td>
-                    <div> xkkjsd </div>
+                    <div> {{$datos->codigo}}</div>
                 </td>
 </tr>
             </table>
