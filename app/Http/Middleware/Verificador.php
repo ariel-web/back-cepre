@@ -17,7 +17,7 @@ class Verificador
     public function handle(Request $request, Closure $next)
     {
         $blockAccess = true;      
-        if(auth()->user()->rol === 1)$blockAccess = false;
+        if(auth()->user()->rol === 2)$blockAccess = false;
 
         if($blockAccess){
             return back()->with('message', ['danger', 'No tienes permisos de verifiación de datos']);
