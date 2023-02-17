@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hi</title>
+    <title>CEPREUNA</title>
     <style> 
 
     </style>
@@ -28,10 +28,10 @@
         <div style="margin-top: 10px; margin-bottom:20px">  
             <table style="width: 100%">
                 <tr>
-                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold">PRE - INSCRIPCION</span></div></td>
+                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold">PRE - INSCRIPCIÓN</span></div></td>
                 </tr>
                 <tr>
-                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold">EXAMEN CEPRE-UNA 2023</span></div></td>
+                    <td align="center"><div style="text-align: center"><span style="font-size:14pt; font-weight:bold">EXAMEN CEPREUNA 2023</span></div></td>
                 </tr>
                 {{-- <tr>
                     <td align="center"><div style="text-align: center"><span style="font-size:18pt; font-weight:bold">PRE - INSCRIPCIÓN</span></div></td>
@@ -45,7 +45,7 @@
                 <tr style="height:85px; padding:0;">
                     <td style="" width="195px" align="left" valign="top">MODALIDAD</td>
                     <td style="" width="5px" align="left" valign="top">:</td>
-                    <td style="" align="left" valign="top"><div style="text-align: justify; font-weight: regular;"><span>CEPREUNA</span></div></td>
+                    <td style="" align="left" valign="top"><div style="text-align: justify; font-weight: regular;"><span>&nbsp;</span></div></td>
                     <td style="" rowspan="7" align="right"  width="150px" valign="top">
                         <div style="border:solid 1px white; padding:5px; width:125px">
                             <div style="overflow: hidden; height:150px; width:125px;">
@@ -57,7 +57,7 @@
                 <tr style="margin-bottom:-12px;">
                     <td width="195px" align="left" valign="top"><div style="margin-top: -6px;">PROGRAMA DE ESTUDIOS</div></td>
                     <td width="5px" align="left" valign="top"><div style="margin-top: -6px;">:</div></td>
-                    <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -6px;"><span style="text-transform: capitalize;">{{$datos->programa}}</span></div></td>
+                    <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -6px;"><span style="text-transform: uppercase;">{{$datos->programa}}</span></div></td>
                 </tr>
                 <tr>
                     <td width="195px" align="left" valign="top"><div style="margin-top: -12px;"> NRO. DE DOCUMENTO </div></td>
@@ -70,7 +70,7 @@
                     <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -18px;"><span style="text-transform: capitalize;">{{$datos->primer_apellido}}</span></div></td>
                 </tr>
                 <tr>
-                    <td width="195px" align="left" valign="top"><div style="margin-top: -24px;"> MATERNO </div></td>
+                    <td width="195px" align="left" valign="top"><div style="margin-top: -24px;">APELLIDO MATERNO </div></td>
                     <td width="5px" align="left" valign="top"><div style="margin-top: -24px;">:</div></td>
                     <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -24px;"><span style="text-transform: capitalize;">{{$datos->segundo_apellido}}</span></div></td>
                 </tr>
@@ -80,7 +80,7 @@
                     <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -30px;"><span style="text-transform: capitalize;">{{$datos->nombres}}</span></div></td>
                 </tr>
                 <tr>
-                    <td width="195px" align="left" valign="top"><div style="margin-top: -36px;"> FECHA </div></td>
+                    <td width="195px" align="left" valign="top"><div style="margin-top: -36px;"> FECHA INSCRIPCIÓN </div></td>
                     <td width="5px" align="left" valign="top"><div style="margin-top: -36px;">:</div></td>
                     <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -36px;"><span style="text-transform: capitalize;">{{$fecha}}</span></div></td>
                 </tr>
@@ -99,14 +99,11 @@
                         </div>
                         <div style="text-align: justify;">
                             <p style="line height:160%;">
-                                EL QUE SUSCRIBE DECLARA BAJO JURAMENTO QUE LA INFORMACIÓN CONSIGNADA EN EL PROCESO 
-                                DE PRE INSCRIPCIÓN ES VERDADERO Y DE MI ENTERA RESPONSABILIDAD: CONOZCO Y ACEPT LO 
-                                DISPUESTO EN EL REGLAMENTO DEL <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I</span>
-                                APERSONARME A LA OFICINA DE DIRECION DE ADMISION PARA LA INSCRIPCION PRESENCIAL SEGÚN AL AREA QUE CORRESPONDA, 21 Y 22 
-                                DE FEBRERO AREA BIOMEDICAS, 23 Y 24 DE FEBRERO AREA INGENIERIA, 27 Y 28 DE FEBRERO AREA SOCIALES Y PRESENTAR LOS 
-                                SIGUIENTES DOCUMENTOS:
-                            </p>
-                        </div>
+                                EL que suscribe, DECLARA BAJO JURAMENTO que la información consignada en el proceso 
+                                de pre inscripción es VERDADERA y de mi entera responsabilidad. Conozco y acepto lo
+                                dispuesto en el reglamento del <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I,</span>
+                                del mismo modo apersonarme a la oficina de Dirección de Admisión para la inscripción presencial según el área que corresponda, 21 y 22 de febrero 
+                                área biomédicas, 23 y 24 de febrero área ingenierías, 27 y 28 de febrero área de sociales.
                     </td>
                 </tr>
             </table>
@@ -125,8 +122,7 @@
                                 <div><span>- </span><span>Documento Nacional de Identidad original y copia</span></div>
                                 <div><span>- </span><span>Constancia de examen vocacional</span></div>
                                 <div><span>- </span><span>Carné de vacunación (tres dosis)</span></div>
-                                <div><span>- </span><span>Lápiz HB N° 2, borrador y tajador</span></div>
-                                <div style="text-align: justify"><span>- </span><span>Certificado de Estudios original o Constancia de Logros de Aprendozaje del primero al quinto grado de</span></div>
+                                <div style="text-align: justify"><span>- </span><span>Certificado de Estudios original o Constancia de Logros de AprendIzaje del primero al quinto grado de</span></div>
                                 <div><span>&nbsp; </span><span>educación secundaria visado por la UGEL o DRE correspondiente.</span></div>
                                 <div><span>- </span><span>Constancia de no adeudar a la CEPREUNA</span></div>
                                 <div><span>- </span><span>Constancia de Examen Médico para (Postulantes a Medicina o Educación física)</span></div>
