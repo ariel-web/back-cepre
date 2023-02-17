@@ -57,7 +57,7 @@
                 <tr style="margin-bottom:-12px;">
                     <td width="195px" align="left" valign="top"><div style="margin-top: -6px;">PROGRAMA DE ESTUDIOS</div></td>
                     <td width="5px" align="left" valign="top"><div style="margin-top: -6px;">:</div></td>
-                    <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -6px;"><span style="text-transform: capitalize;">{{$datos->programa}}</span></div></td>
+                    <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -6px;"><span style="text-transform: uppercase;">{{$datos->programa}}</span></div></td>
                 </tr>
                 <tr>
                     <td width="195px" align="left" valign="top"><div style="margin-top: -12px;"> NRO. DE DOCUMENTO </div></td>
@@ -99,12 +99,11 @@
                         </div>
                         <div style="text-align: justify;">
                             <p style="line height:160%;">
-                                EL QUE SUSCRIBE, DECLARA BAJO JURAMENTO QUE LA INFORMACIÓN CONSIGNADA EN EL PROCESO 
-                                DE PRE INSCRIPCIÓN ES VERDADERO Y DE MI ENTERA RESPONSABILIDAD, CONOZCO Y ACEPTO LO 
-                                DISPUESTO EN EL REGLAMENTO DEL <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I</span>
-                                , DEL MISMO MODO APERSONRME A LA OFICINA DE DIRECIÓN DE ADMISIÓN PARA LA INSCRIPCIÓN PRESENCIAL SEGÚN AL ÁREA QUE CORRESPONDA, 21 Y 22 
-                                DE FEBRERO ÁREA BIOMEDICAS, 23 Y 24 DE FEBRERO ÁREA INGENIERÍA, 27 Y 28 DE FEBRERO ÁREA SOCIALES.
-                        </div>
+                                EL que suscribe, DECLARA BAJO JURAMENTO que la información consignada en el proceso 
+                                de pre inscripción es VERDADERA y de mi entera responsabilidad. Conozco y acepto lo
+                                dispuesto en el reglamento del <span style="font-weight:bold;">EXAMEN DE ADMISIÓN CEPREUNA PRESENCIAL 2023 - I,</span>
+                                del mismo modo apersonarme a la oficina de Dirección de Admisión para la inscripción presencial según el área que corresponda, 21 y 22 de febrero 
+                                área biomédicas, 23 y 24 de febrero área ingenierías, 27 y 28 de febrero área de sociales.
                     </td>
                 </tr>
             </table>
