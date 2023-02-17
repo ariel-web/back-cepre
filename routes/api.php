@@ -24,6 +24,13 @@ use App\Http\Controllers\InscripcionesController;
 |
 */
 
+Route::middleware(['auth', 'verificador'])->group(function () {
+    Route::get('test', function(){
+        return "Lograst entrar como verificador";
+    });
+});
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -41,7 +48,6 @@ Route::resource('/postulante', PostulanteController::class);
 Route::post('/get-postulantes', [PostulanteController::class, 'getPostulantes']);
 Route::get('/deletePostulante/{id}', [PostulanteController::class, 'destroy']);
 Route::post('/modificarPostulante', [PostulanteController::class, 'update']);
-
 Route::get('/get-postulante-dni/{dni}', [PostulanteController::class, 'getPostulanteDdni']);
 
 //COLEGIOS
@@ -59,20 +65,19 @@ Route::post('/modificarApoderado', [ApoderadoController::class, 'update']);
 Route::group(['prefix' => 'auth'], function () {
 
     Route::post('login', [AuthController::class, 'login'])->name('login');
-
     Route::post('register', [AuthController::class, 'register']);
+    // Route::group(['middleware' => 'auth:api'], function () {
+    //     
+    //     Route::get('user', [AuthController::class, 'user']);
+    // });
 
-    Route::group(['middleware' => 'auth:api'], function () {
+    Route::middleware('auth:sanctum')->group( function () {
         Route::get('logout', [AuthController::class, 'logout']);
-        Route::get('user', [AuthController::class, 'user']);
-        Route::post('login', [AuthController::class, 'loginUser'])->name('login');
-        Route::post('register', [AuthController::class, 'register']);
-    });
-    Route::group(['middleware' => 'auth:api'], function () {
-        Route::get('logout', [AuthController::class, 'logout']);
-        Route::get('user', [AuthController::class, 'user']);
     });
 
+
+    Route::post('login', [AuthController::class, 'loginUser'])->name('login');
+    Route::post('register', [AuthController::class, 'register']);
     Route::get('user', [AuthController::class, 'user']);
 });
 
@@ -118,3 +123,4 @@ Route::group(['middleware' => ['cors']], function () {
 
 Route::get('/preguntas/{id}', [PreguntaController::class, 'getPreguntasPrograma']);
 Route::post('/guardar-examen', [PreguntaController::class, 'guardarExamen']);
+

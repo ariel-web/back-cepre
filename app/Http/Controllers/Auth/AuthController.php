@@ -59,13 +59,15 @@ class AuthController extends Controller
       ], 201);
     }
 
-    public function logout(Request $request) {
-      $request->user()->token()->revoke();
+    public function logout() {
+      $user = Auth::guard('client')->user();
+      $request->token()->revoke();
       return response()->json([ 'message' => 'Salió del Sistema']);
     }
 
     public function user(Request $request){
-        return response()->json($request->user());
+      $user =  auth('sanctum')->user();  
+      return response()->json($user);
     }
 
 }

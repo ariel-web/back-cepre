@@ -21,7 +21,7 @@
         <table style="width:100%; bakcground:orange;">
             <tr>
                 <td width="130"></td>
-                <td align="center" valign="center" style="font-size:14pt; font-weight:700;">EXAMEN EXTRAORDINARIO 2023</td>
+                <td align="center" valign="center" style="font-size:14pt; font-weight:700;">EXAMEN CEPREUNA 2023-I</td>
                 <td align="right" style="width:130px;"> 
                     <span style="font-size:8pt;"><?php echo DNS1D::getBarcodeHTML($codigo,'C128');?> </span>
                     <div> {{$codigo}} </div>

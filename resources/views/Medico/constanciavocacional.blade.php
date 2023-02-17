@@ -13,7 +13,7 @@
                 <td align="center" style="font-size:14pt; font-weight:700;">
                     <div>UNIVERSIDAD NACIONAL DEL ALTIPLANO</div>
                     <div>DIRECCIÓN DE ADMISIÓN</div>
-                    <div>EXAMEN EXTRAORDINARIO 2023</div>
+                    <div>EXAMEN CEPREUNA 2023-I</div>
                 </td>
                 <td align="center" rowspan="1"> <img src="{{ public_path('imagenes/logoDAD.jpg')}}"  width="85"></td>
             </tr>
