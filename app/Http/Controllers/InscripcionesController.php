@@ -163,4 +163,20 @@ class InscripcionesController extends Controller
     }
 
 
+    public function inscribir(Request $request) {
+
+        $inscribir = Inscripciones::create([
+            'id_postulante' => $request->id_postulante,
+            'id_programa' => $request->id_programa,
+            'id_usuario' => 1,
+          ]);
+  
+          $this->response['estado'] = true;
+          $this->response['datos'] = $inscribir;
+          $this->response['mensaje'] = 'Postulante registrado';
+          return response()->json($this->response, 200);
+
+    }
+
+
 }

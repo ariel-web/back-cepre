@@ -12,6 +12,7 @@ use App\Http\Controllers\PreIsncripcionController;
 use App\Http\Controllers\SelectDataController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\InscripcionesController;
+use App\Http\Controllers\ComprobanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,11 @@ Route::get('/guardar-constancias', [MedicoController::class, 'generPDFS']);
 Route::get('/constancia-vocacional/{codigo}/{dni}/{nombre}', [MedicoController::class, 'constanciaVocacional']);
 Route::get('/constancia-inscripcion/{dni}',[InscripcionesController::class, 'constanciaInscripcion']);
 Route::get('/constancia-pre-inscripcion/{dni}',[PreIsncripcionController::class, 'constanciaPreInscripcion']);
+
+//VOUCHER
+Route::post('/actualizar-voucher', [ComprobanteController::class, 'actualizar']);
+
+
 
 
 //POSTULANTE
@@ -124,3 +130,5 @@ Route::group(['middleware' => ['cors']], function () {
 Route::get('/preguntas/{id}', [PreguntaController::class, 'getPreguntasPrograma']);
 Route::post('/guardar-examen', [PreguntaController::class, 'guardarExamen']);
 
+
+Route::post('/validar', [InscripcionesController::class, 'inscribir']);
