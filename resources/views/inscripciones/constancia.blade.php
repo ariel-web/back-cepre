@@ -32,7 +32,7 @@
                 <tr style="margin-bottom:-12px;">
                     <td width="195px" align="left" valign="top"><div style="margin-top: -6px;">PROGRAMA DE ESTUDIOS</div></td>
                     <td width="5px" align="left" valign="top"><div style="margin-top: -6px;">:</div></td>
-                    <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -6px;"><span style="text-transform: uppercase;">{{$datos->programa}}</span></div></td>
+                    <td align="left" valign="top"><div style="text-align: justify; font-weight: regular; margin-top: -6px;"><span style="text-transform: uppercase;">{{trim($datos->programa)}}</span></div></td>
                 </tr>
                 <tr>
                     <td width="195px" align="left" valign="top"><div style="margin-top: -12px;"> NRO. DE DOCUMENTO:</div></td>
