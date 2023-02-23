@@ -39,8 +39,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/guardar-constancia', [MedicoController::class, 'guardar']);
 Route::get('/guardar-constancias', [MedicoController::class, 'generPDFS']);
 Route::get('/constancia-vocacional/{codigo}/{dni}/{nombre}', [MedicoController::class, 'constanciaVocacional']);
+
+Route::get('/constancia-vocacional2/{codigo}/{dni}/{nombre}', [MedicoController::class, 'constanciaVocacional']);
 Route::get('/constancia-inscripcion/{dni}',[InscripcionesController::class, 'constanciaInscripcion']);
 Route::get('/constancia-pre-inscripcion/{dni}',[PreIsncripcionController::class, 'constanciaPreInscripcion']);
+
+Route::get('/constancia-pre-inscripcion-general/{dni}',[PreIsncripcionController::class, 'constanciaPreInscripcion2']);
+
 
 Route::get('/generar-constancias', [MedicoController::class, 'genConstancias2']);
 

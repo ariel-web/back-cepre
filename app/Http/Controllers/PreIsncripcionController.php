@@ -239,7 +239,7 @@ class PreIsncripcionController extends Controller
         $fecha = date('d-m-Y');
         $datos = $res[0];
 
-        $pdf = PDF::loadView('/PreInscripcion/constancia', compact('datos', 'fecha'));
+        $pdf = PDF::loadView('/PreInscripcion/constancia2', compact('datos', 'fecha'));
         // $pdf->stream($codigo);
         // $pdf->output();
         $pdf->setPaper('A4', 'portrait');
