@@ -96,7 +96,7 @@
                             <span style="font-weight:bold;">
                                 DÍA DEL EXAMEN PRESENTAR LO SIGUIENTE CON ESTRICTO CUMPLIMIENTO:
                             </span>
-                            <span>{{ "file://desktop-5v69rsu/capturaHuellas/".$datos->nro_doc.'.jpg'}} </span>
+    
                             <div style="margin-top: 16px">
                                 <div><span>- </span><span>Documento Nacional de Identidad (original)</span></div>
                                 <div><span>- </span><span>Lápiz 2B, borrador y tajador</span></div>
