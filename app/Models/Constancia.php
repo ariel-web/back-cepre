@@ -16,6 +16,7 @@ class Constancia extends Model
         'url',
         'id_postulante',
         'codigo_seguridad_pre',
-        'tipo'
+        'tipo',
+        
     ];
 }
