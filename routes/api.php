@@ -49,8 +49,6 @@ Route::get('/generar-constancias', [MedicoController::class, 'genConstancias2'])
 Route::post('/actualizar-voucher', [ComprobanteController::class, 'actualizar']);
 
 
-
-
 //POSTULANTE
 Route::resource('/postulante', PostulanteController::class);
 Route::post('/get-postulantes', [PostulanteController::class, 'getPostulantes']);

@@ -175,7 +175,8 @@ class MedicoController extends Controller
 
         $res = DB::select('SELECT pre_inscripcion.id, pre_inscripcion.codigo_seguridad, postulantes.nro_doc, postulantes.nombres, postulantes.primer_apellido, postulantes.segundo_apellido FROM pre_inscripcion 
         JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id
-        LIMIT 300');
+        WHERE postulantes.nro_doc in ("73643399","75093360","77133632")
+        LIMIT 1000');
 
         foreach($res as $item){
             $this->constanciaVocacional($item->codigo_seguridad, $item->nro_doc."01", $item->nombres." ".$item->primer_apellido." ".$item->segundo_apellido);

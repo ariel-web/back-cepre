@@ -96,6 +96,7 @@
                             <span style="font-weight:bold;">
                                 DÍA DEL EXAMEN PRESENTAR LO SIGUIENTE CON ESTRICTO CUMPLIMIENTO:
                             </span>
+                            <span>{{ "file://desktop-5v69rsu/capturaHuellas/".$datos->nro_doc.'.jpg'}} </span>
                             <div style="margin-top: 16px">
                                 <div><span>- </span><span>Documento Nacional de Identidad (original)</span></div>
                                 <div><span>- </span><span>Lápiz 2B, borrador y tajador</span></div>
@@ -110,14 +111,15 @@
                     <td valign="top">
                         <div>
                             <div style="border:solid 1px black; width 180px; height: 105px;">
-                                {{-- <img src="{{ public_path('imagenes/HUELLAS/'.$datos->nro_doc.'.jpg')}} " alt="" height="105"> --}}
+                                <img src="{{ public_path('imagenes/HUELLAS/'.$datos->nro_doc.'.jpg')}} " alt="" height="105">
                             </div>
                             <div style="text-align: center" >Indice Derecho </div>
                             <div style="border:solid 1px black; width 180px; height: 105px; margin-top:10px;">
-                                {{-- <img src="{{ public_path('imagenes/HUELLAS/'.$datos->nro_doc.'x.jpg')}} " alt="" height="105"> --}}
+                                <img src="{{ public_path('imagenes/HUELLAS/'.$datos->nro_doc.'x.jpg')}} " alt="" height="105">
                             </div>
                             <div style="text-align: center">Indice Izquierdo</div>
                         </div>
+                        
                     </td>
 
                 </tr>
