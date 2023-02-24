@@ -75,7 +75,7 @@ class MedicoController extends Controller
 
         $pdf->output();
         $output = $pdf->output();
-        file_put_contents(public_path().'/documentos/constancias/nuevos/'.$dni."-".$nombre.'.pdf', $output);
+        file_put_contents(public_path().'/documentos/constancias/'.$dni."-".$nombre.'.pdf', $output);
 
 //        $output = $pdf->output();
         return $pdf->download('mi-constancia-vocacional.pdf');
