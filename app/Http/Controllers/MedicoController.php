@@ -83,33 +83,6 @@ class MedicoController extends Controller
     }
 
 
-    public function constanciaVocacional2($codigo,$dni,$nombre){
-
-        $codigo = $codigo; 
-        $id_programa = Str::substr($dni,8);
-        $sql_programa = DB::select('select nombre FROM programa_de_estudios WHERE id = '.$id_programa);
-        $programa = $sql_programa[0];
-
-        $dni_p = Str::substr($dni, 0, 8);
-        $nombre_completo = $nombre;
-
-        $ldate = date('d');
-        $lanio = date('Y');
-        $pdf = PDF::loadView('Medico/constanciavocacional3', compact('codigo','ldate','lanio','dni_p', 'programa', 'nombre_completo'));
-        // $pdf->stream($codigo);
-        // $pdf->output();
-        $pdf->setPaper('A5', 'landscape');
-
-        $pdf->output();
-        $output = $pdf->output();
-        file_put_contents(public_path().'/documentos/constancias/nuevos/'.$dni."-".$nombre.'.pdf', $output);
-
-//        $output = $pdf->output();
-        return $pdf->download('mi-constancia-vocacional.pdf');
-
-    }
-
-
 
     public function guardar2($codigo)
     {

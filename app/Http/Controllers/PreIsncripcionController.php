@@ -173,7 +173,7 @@ class PreIsncripcionController extends Controller
                         $request->pdf_certificado->move(public_path('uploads/cerfiticado'), $pdf_certificado);
 
                         $data_constancia = [
-                            'codigo' => $programa->codigo_constancia,
+                            'codigo' => $programa->constancia_codigo,
                             'id_postulante'  => $res_post->id,
                             'tipo' => 'CE-E',
                             'codigo_seguridad_pre' => $request->codigo,
@@ -239,7 +239,7 @@ class PreIsncripcionController extends Controller
         $fecha = date('d-m-Y');
         $datos = $res[0];
 
-        $pdf = PDF::loadView('/PreInscripcion/constancia2', compact('datos', 'fecha'));
+        $pdf = PDF::loadView('/PreInscripcion/constancia', compact('datos', 'fecha'));
         // $pdf->stream($codigo);
         // $pdf->output();
         $pdf->setPaper('A4', 'portrait');
