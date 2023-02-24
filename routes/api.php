@@ -10,7 +10,7 @@ use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\SelectDataController;
 use App\Http\Controllers\PreguntaController;
-use App\Http\Controllers\IsncripcionesController;
+use App\Http\Controllers\PreIsncripcionController;
 use App\Http\Controllers\ComprobanteController;
 
 /*
