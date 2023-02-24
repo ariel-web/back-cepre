@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inscripciones;
+use App\Models\PreIsncripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
@@ -101,12 +102,35 @@ class InscripcionesController extends Controller
     
     public function constanciaInscripcion($dni){
 
-        $res = DB::select('SELECT  programa_de_estudios.nombre AS programa, 
-        postulantes.nro_doc, postulantes.primer_apellido, postulantes.segundo_apellido, postulantes.nombres, postulantes.foto_url
+        $res = DB::select('SELECT pre_inscripcion.id as prei, programa_de_estudios.id as idp, programa_de_estudios.nombre AS programa, 
+        postulantes.id as ide, postulantes.nro_doc, postulantes.primer_apellido, postulantes.segundo_apellido, postulantes.nombres, postulantes.foto_url
         FROM pre_inscripcion
         JOIN programa_de_estudios ON programa_de_estudios.id = pre_inscripcion.id_programa_estudios 
         JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id 
         WHERE postulantes.nro_doc = '.$dni.';');
+
+        $q=[];
+
+        $q = DB::select('SELECT inscripciones.id_postulante FROM inscripciones
+        WHERE inscripciones.id_postulante IN (SELECT id FROM postulantes WHERE nro_doc = '.$dni.');');
+
+
+        if(count($q) === 0 ){
+            $inscribir = Inscripciones::create([
+                'id_postulante' => $res[0]->ide,
+                'id_programa' => $res[0]->idp,
+                'id_usuario' => 1,
+                'estado' => 1,
+            ]);
+    
+            $pre = PreIsncripcion::find($res[0]->prei);
+            $pre['estado'] = 1; 
+
+            $pre->save();
+        } 
+
+
+
 
         $fecha = date('d-m-Y');
         $datos = $res[0];
@@ -159,6 +183,64 @@ class InscripcionesController extends Controller
 
         $this->response['estado'] = true;
         $this->response['datos'] = $res;
+        return response()->json($this->response, 200);
+    }
+
+
+    public function inscribir(Request $request) {
+
+        $inscribir = Inscripciones::create([
+            'id_postulante' => $request->id_postulante,
+            'id_programa' => $request->id_programa,
+            'id_usuario' => 1,
+          ]);
+  
+          $this->response['estado'] = true;
+          $this->response['datos'] = $inscribir;
+          $this->response['mensaje'] = 'Postulante registrado';
+          return response()->json($this->response, 200);
+
+    }
+
+
+    public function getPostulantesInscritos(Request $request){
+
+        $res = PreIsncripcion::select(
+            'programa_de_estudios.nombre as programa',
+            'postulantes.nro_doc',
+            'postulantes.primer_apellido',
+            'postulantes.segundo_apellido',
+            'postulantes.nombres',
+            'pre_inscripcion.estado'
+        )
+            ->join('programa_de_estudios', 'programa_de_estudios.id', '=', 'pre_inscripcion.id_programa_estudios')
+            ->join('postulantes', 'pre_inscripcion.id_postulante', '=', 'postulantes.id')
+            ->where(function ($query) use ($request) {
+                return $query
+                    ->orWhere('postulantes.nro_doc', 'LIKE', '%' . $request->term . '%')
+                    ->orWhere('postulantes.nombres', 'LIKE', '%' . $request->term . '%')
+                    ->orWhere('postulantes.primer_apellido', 'LIKE', '%' . $request->term . '%');
+                })->orderBy('pre_inscripcion.id', 'DESC')
+                ->paginate(10);
+
+        $this->response['estado'] = true;
+        $this->response['datos'] = $res;
+        return response()->json($this->response, 200);
+    }
+
+    public function getPostulantesInscritosDni($dni){
+
+        return $res =DB::insert('SELECT  
+        programa_de_estudios.nombre AS programa, 
+        postulantes.nro_doc, postulantes.primer_apellido, postulantes.segundo_apellido, postulantes.nombres,
+        pre_inscripcion.estado
+        FROM pre_inscripcion
+        JOIN programa_de_estudios ON programa_de_estudios.id = pre_inscripcion.id_programa_estudios 
+        JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id 
+        WHERE postulantes.nro_doc = '.$dni.';');
+
+        $this->response['estado'] = true;
+        $this->response['datos'] = $res[0];
         return response()->json($this->response, 200);
     }
 

@@ -82,4 +82,30 @@ class ComprobanteController extends Controller
     {
         //
     }
+
+    public function actualizar(Request $request){
+
+ //       return $request;
+
+        $com = Comprobante::find($request->vou['id']);
+
+        if($com->nro_operacion  !== $request->vou['nro_operacion'] ){
+            $com->nro_operacion = $request->vou['nro_operacion'];
+        }
+
+        if($com->fecha  != $request->vou['fecha'] ){
+            $com->fecha = $request->vou['fecha'];
+        }
+
+        if($com->monto  != $request->vou['monto'] ){
+            $com->monto = $request->vou['monto'];
+        }
+
+        
+        $com->save();
+
+
+    }
+
+
 }

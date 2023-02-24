@@ -140,22 +140,35 @@ class PostulanteController extends Controller
     }
 
     public function getPostulanteDdni($dni){
+
         $comprobantes = DB::select('SELECT * FROM comprobantes WHERE comprobantes.codigo_seguridad_pre IN (SELECT codigo_seguridad FROM pre_inscripcion 
         WHERE id_postulante  IN (SELECT id FROM postulantes WHERE nro_doc = '.$dni.'));');
-        $res = DB::select('SELECT postulantes.*, colegios.nombre AS colegio, colegios.id AS idC from postulantes
-        JOIN colegios ON colegios.id = postulantes.id_colegio where nro_doc = '.$dni);
-        $apoderados = DB::select('SELECT * from apoderados
-        WHERE id_postulante IN ( SELECT id FROM postulantes where postulantes.nro_doc = '.$dni.')');
-        $residencia = DB::select('SELECT postulantes.direccion, ubigeo_residencia AS ubigeo,
-        SUBSTRING(ubigeo_residencia,1,2) AS dep, 
-        SUBSTRING(ubigeo_residencia,3,2) AS prov
-        FROM postulantes where postulantes.nro_doc = '.$dni.';');
+
+        $res = DB::select('SELECT postulantes.*, colegios.nombre AS colegio, colegios.id AS idC, pre_inscripcion.codigo_seguridad AS cod from postulantes
+        JOIN colegios ON colegios.id = postulantes.id_colegio
+        JOIN pre_inscripcion ON pre_inscripcion.id_postulante = postulantes.id 
+        where nro_doc = '.$dni);
+
+        $certificado = DB::select("SELECT * FROM constancias
+        WHERE constancias.codigo_seguridad_pre IN (
+        SELECT pre_inscripcion.codigo_seguridad FROM pre_inscripcion 
+        WHERE id_postulante IN (SELECT id FROM postulantes WHERE nro_doc = '".$dni."'));"); 
+
+//        $res[0]['url'] = 'uploads/foto'
+
+        // $apoderados = DB::select('SELECT * from apoderados
+        // WHERE id_postulante IN ( SELECT id FROM postulantes where postulantes.nro_doc = '.$dni.')');
+        // $residencia = DB::select('SELECT postulantes.direccion, ubigeo_residencia AS ubigeo,
+        // SUBSTRING(ubigeo_residencia,1,2) AS dep, 
+        // SUBSTRING(ubigeo_residencia,3,2) AS prov
+        // FROM postulantes where postulantes.nro_doc = '.$dni.';');
 
         $this->response['estado'] = true;
         $this->response['datos'] = $res[0];
-        $this->response['apoderados'] = $apoderados;
+        $this->response['certificado'] = $certificado[0];
+        // $this->response['apoderados'] = $apoderados;
         $this->response['comprobantes'] = $comprobantes;
-        $this->response['residencia'] = $residencia[0];
+        // $this->response['residencia'] = $residencia[0];
         return response()->json($this->response, 200);
         
     }

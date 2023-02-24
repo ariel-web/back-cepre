@@ -72,6 +72,11 @@ class MedicoController extends Controller
         // $pdf->stream($codigo);
         // $pdf->output();
         $pdf->setPaper('A5', 'landscape');
+
+        $pdf->output();
+        $output = $pdf->output();
+        file_put_contents(public_path().'/documentos/constancias/nuevos/'.$dni."-".$nombre.'.pdf', $output);
+
 //        $output = $pdf->output();
         return $pdf->download('mi-constancia-vocacional.pdf');
 
@@ -161,6 +166,23 @@ class MedicoController extends Controller
         $this->response['url'] = $url;
         $this->response['estado'] = true;
         return response()->json($this->response, 200);
+
+    }
+
+
+
+    public function genConstancias2(){
+
+        $res = DB::select('SELECT pre_inscripcion.id, pre_inscripcion.codigo_seguridad, postulantes.nro_doc, postulantes.nombres, postulantes.primer_apellido, postulantes.segundo_apellido FROM pre_inscripcion 
+        JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id
+        WHERE postulantes.nro_doc in ("73643399","75093360","77133632")
+        LIMIT 1000');
+
+        foreach($res as $item){
+            $this->constanciaVocacional($item->codigo_seguridad, $item->nro_doc."01", $item->nombres." ".$item->primer_apellido." ".$item->segundo_apellido);
+        }
+        
+        return "FAult";
 
     }
 

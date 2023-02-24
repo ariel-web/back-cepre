@@ -8,10 +8,10 @@ use App\Http\Controllers\ColegioController;
 use App\Http\Controllers\ApoderadoController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\PreIsncripcionController;
 use App\Http\Controllers\SelectDataController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\InscripcionesController;
+use App\Http\Controllers\ComprobanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,12 @@ Route::get('/guardar-constancias', [MedicoController::class, 'generPDFS']);
 Route::get('/constancia-vocacional/{codigo}/{dni}/{nombre}', [MedicoController::class, 'constanciaVocacional']);
 Route::get('/constancia-inscripcion/{dni}',[InscripcionesController::class, 'constanciaInscripcion']);
 Route::get('/constancia-pre-inscripcion/{dni}',[PreIsncripcionController::class, 'constanciaPreInscripcion']);
+
+Route::get('/generar-constancias', [MedicoController::class, 'genConstancias2']);
+
+
+//VOUCHER
+Route::post('/actualizar-voucher', [ComprobanteController::class, 'actualizar']);
 
 
 //POSTULANTE
@@ -124,3 +130,9 @@ Route::group(['middleware' => ['cors']], function () {
 Route::get('/preguntas/{id}', [PreguntaController::class, 'getPreguntasPrograma']);
 Route::post('/guardar-examen', [PreguntaController::class, 'guardarExamen']);
 
+
+Route::post('/validar', [InscripcionesController::class, 'inscribir']);
+Route::post('/postulantes-inscritos', [InscripcionesController::class, 'getPostulantesInscritos']);
+Route::get('/postulantes-inscritos/{dni}', [InscripcionesController::class, 'getPostulantesInscritosDni']);
+
+//getPostulantesInscritosDn
