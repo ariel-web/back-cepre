@@ -45,7 +45,7 @@
                 <tr style="height:85px; padding:0;">
                     <td style="" width="195px" align="left" valign="top">MODALIDAD</td>
                     <td style="" width="5px" align="left" valign="top">:</td>
-                    <td style="" align="left" valign="top"><div style="text-align: justify; font-weight: regular;"><span>&nbsp;</span></div></td>
+                    <td style="" align="left" valign="top"><div style="text-align: justify; font-weight: regular;"><span>CEPREUNA</span></div></td>
                     <td style="" rowspan="7" align="right"  width="150px" valign="top">
                         <div style="border:solid 1px white; padding:5px; width:125px">
                             <div style="overflow: hidden; height:150px; width:125px;">
