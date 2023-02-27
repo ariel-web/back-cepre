@@ -42,6 +42,9 @@ Route::get('/constancia-vocacional/{codigo}/{dni}/{nombre}', [MedicoController::
 Route::get('/constancia-inscripcion/{dni}',[InscripcionesController::class, 'constanciaInscripcion']);
 Route::get('/constancia-pre-inscripcion/{dni}',[PreIsncripcionController::class, 'constanciaPreInscripcion']);
 
+
+Route::get('/constancia-vocacional-postulante/{dni}', [MedicoController::class, 'constanciaVocacionalDNI']);
+
 Route::get('/generar-constancias', [MedicoController::class, 'genConstancias2']);
 
 

@@ -23,3 +23,4 @@ Route::get('constancia-medica', [ConstanciaController::class, 'constanciaMedica'
 Route::get('/constancia-vocacional/{codigo}/{nota}', [MedicoController::class, 'constanciaVocacional']);
 
 Route::get('/constancia-inscripcion/{dni}',[InscripcionesController::class, 'constanciaInscripcion']);
+
