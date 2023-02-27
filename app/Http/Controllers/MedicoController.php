@@ -55,6 +55,11 @@ class MedicoController extends Controller
     }
 
 
+    //IMPRIMIR
+    // public funcion vocacionalDNI($dni){
+
+    //     $this->constanciaVocacional('codigo','ladate','lanio','dni_p','programa','nombre_completo');
+    // } 
 
     public function constanciaVocacional($codigo,$dni,$nombre){
 
@@ -69,18 +74,16 @@ class MedicoController extends Controller
         $ldate = date('d');
         $lanio = date('Y');
         $pdf = PDF::loadView('Medico/constanciavocacional2', compact('codigo','ldate','lanio','dni_p', 'programa', 'nombre_completo'));
-        // $pdf->stream($codigo);
-        // $pdf->output();
+       
         $pdf->setPaper('A5', 'landscape');
 
         $pdf->output();
         $output = $pdf->output();
         file_put_contents(public_path().'/documentos/constancias/'.$dni."-".$nombre.'.pdf', $output);
-
-//        $output = $pdf->output();
         return $pdf->download('mi-constancia-vocacional.pdf');
 
     }
+
 
 
 
@@ -185,6 +188,51 @@ class MedicoController extends Controller
         return "FAult";
 
     }
+
+    public function constanciaVocacionalDNI($dni)
+    {
+        $res = DB::select('SELECT programa_de_estudios.nombre AS programa, pre_inscripcion.codigo_seguridad AS codigo, 
+        postulantes.nro_doc AS dni, 
+        CONCAT(postulantes.nombres," ",postulantes.primer_apellido, " ",postulantes.segundo_apellido) AS nombre
+        FROM postulantes
+        JOIN pre_inscripcion ON pre_inscripcion.id_postulante = postulantes.id
+        JOIN programa_de_estudios ON pre_inscripcion.id_programa_estudios = programa_de_estudios.id
+        WHERE postulantes.nro_doc = '.$dni.';');
+
+        //$this->constanciaVocacionalForDNI($res[0]->codigo, $res[0]->dni, $res[0]->nombre, $res[0]->nombre);
+        $codigo = $res[0]->codigo; 
+        $dni_p = $res[0]->dni;
+        $nombre_completo = $res[0]->nombre;
+        $ldate = date('d');
+        $lanio = date('Y');
+        $pdf = PDF::loadView('Medico/constanciavocacionalDNI', compact('codigo','ldate','lanio','dni_p', 'nombre_completo'));
+       
+        $pdf->setPaper('A5', 'landscape');
+        $pdf->output();
+        $output = $pdf->output();
+        file_put_contents(public_path().'/documentos/constancias/vocacional/'.$dni_p."-".$nombre_completo.'.pdf', $output);
+        return $pdf->download('mi-constancia-vocacional.pdf');
+    
+    }
+
+    public function constanciaVocacionalForDNI($codigo,$dni,$nombre, $programa){
+
+        $codigo = $codigo; 
+        $dni_p = $dni;
+        $nombre_completo = $nombre;
+        $programa = $programa;
+        $ldate = date('d');
+        $lanio = date('Y');
+        $pdf = PDF::loadView('Medico/constanciavocacionalDNI', compact('codigo','ldate','lanio','dni_p', 'programa', 'nombre_completo'));
+       
+        $pdf->setPaper('A5', 'landscape');
+        $pdf->output();
+        $output = $pdf->output();
+        file_put_contents(public_path().'/documentos/constancias/'.$dni."-".$nombre.'.pdf', $output);
+        return $pdf->download('mi-constancia-vocacional.pdf');
+
+    }
+
 
 }
 
