@@ -144,7 +144,7 @@ class PostulanteController extends Controller
         $comprobantes = DB::select('SELECT * FROM comprobantes WHERE comprobantes.codigo_seguridad_pre IN (SELECT codigo_seguridad FROM pre_inscripcion 
         WHERE id_postulante  IN (SELECT id FROM postulantes WHERE nro_doc = '.$dni.'));');
 
-        $res = DB::select('SELECT postulantes.*, colegios.nombre AS colegio, colegios.id AS idC, pre_inscripcion.codigo_seguridad AS cod from postulantes
+        $res = DB::select('SELECT postulantes.*, colegios.nombre AS colegio, colegios.id AS idC, pre_inscripcion.codigo_seguridad AS cod, pre_inscripcion.id_programa_estudios as programa from postulantes
         JOIN colegios ON colegios.id = postulantes.id_colegio
         JOIN pre_inscripcion ON pre_inscripcion.id_postulante = postulantes.id 
         where nro_doc = '.$dni);

@@ -12,7 +12,7 @@ use App\Http\Controllers\SelectDataController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\PreIsncripcionController;
 use App\Http\Controllers\ComprobanteController;
-
+use App\Http\Controllers\InscripcionesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -138,4 +138,7 @@ Route::post('/validar', [InscripcionesController::class, 'inscribir']);
 Route::post('/postulantes-inscritos', [InscripcionesController::class, 'getPostulantesInscritos']);
 Route::get('/postulantes-inscritos/{dni}', [InscripcionesController::class, 'getPostulantesInscritosDni']);
 
-//getPostulantesInscritosDn
+
+Route::get('/invitacion', [MedicoController::class, 'invitacion']);
+Route::get('/invitacion-admi', [MedicoController::class, 'invitacionadministrativos']);
+

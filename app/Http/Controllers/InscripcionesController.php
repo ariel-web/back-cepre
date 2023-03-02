@@ -146,6 +146,51 @@ class InscripcionesController extends Controller
     }
 
 
+    public function constanciaInscripcion2($dni){
+
+        $res = DB::select('SELECT pre_inscripcion.id as prei, programa_de_estudios.id as idp, programa_de_estudios.nombre AS programa, 
+        postulantes.id as ide, postulantes.nro_doc, postulantes.primer_apellido, postulantes.segundo_apellido, postulantes.nombres, postulantes.foto_url
+        FROM pre_inscripcion
+        JOIN programa_de_estudios ON programa_de_estudios.id = pre_inscripcion.id_programa_estudios 
+        JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id 
+        WHERE postulantes.nro_doc = '.$dni.';');
+
+        $q=[];
+
+        $q = DB::select('SELECT inscripciones.id_postulante FROM inscripciones
+        WHERE inscripciones.id_postulante IN (SELECT id FROM postulantes WHERE nro_doc = '.$dni.');');
+
+
+        if(count($q) === 0 ){
+            $inscribir = Inscripciones::create([
+                'id_postulante' => $res[0]->ide,
+                'id_programa' => $res[0]->idp,
+                'id_usuario' => 1,
+                'estado' => 1,
+            ]);
+    
+            $pre = PreIsncripcion::find($res[0]->prei);
+            $pre['estado'] = 1; 
+
+            $pre->save();
+        } 
+
+
+
+
+        $fecha = date('d-m-Y');
+        $datos = $res[0];
+
+        $pdf = PDF::loadView('/Inscripciones/constancia', compact('datos','fecha'));
+        //$pdf->stream($codigo);
+        //$pdf->output();
+        $pdf->setPaper('A4', 'portrait');
+        //$output = $pdf->output();
+        return $pdf->download('mi-constancia-de-inscripcion.pdf');
+    
+    }
+
+
     // public function Postulantes{
 
 
