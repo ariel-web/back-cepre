@@ -234,6 +234,51 @@ class MedicoController extends Controller
 
     }
 
+    public function invitacion(){
+
+        $res = DB::select('SELECT id, dni, CONCAT(nombres," ",paterno," ",materno) AS nombre, escuela FROM docentes_nombrados WHERE id > 1035;;');
+
+        foreach($res as $item){
+
+            $ldate = date('d');
+            $lanio = date('Y');
+            $id = $item->id;
+            $dni = $item->dni;
+            $nombre = $item->nombre;
+            $escuela = $item->escuela;
+            $pdf = PDF::loadView('Invitacion/Invitacion', compact('ldate','lanio','dni','nombre','escuela'));
+            $pdf->setPaper('A5', 'landscape');
+            $pdf->output();
+            $output = $pdf->output();
+            file_put_contents(public_path().'/documentos/invitaciones/'.$id."-".$dni."-".$nombre.'.pdf', $output);
+
+        }        
+
+
+    }
+
+    public function invitacionadministrativos(){
+            
+        $res = DB::select('SELECT * FROM administrativos WHERE id > 588;');
+
+        foreach($res as $item){
+
+            $ldate = date('d');
+            $lanio = date('Y');
+            $dni = $item->dni;
+            $id = $item->id;
+            $nombre = $item->nombres;
+            $escuela = $item->condicion;
+            $pdf = PDF::loadView('Invitacion/InvitacionA', compact('ldate','lanio','dni','nombre','escuela'));
+            $pdf->setPaper('A5', 'landscape');
+            $pdf->output();
+            $output = $pdf->output();
+            file_put_contents(public_path().'/documentos/invitacionesa/'.$id."-".$dni."-".$nombre.'.pdf', $output);
+        
+        }
+
+    }
+
 
 }
 
