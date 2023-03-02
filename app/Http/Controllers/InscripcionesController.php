@@ -181,7 +181,7 @@ class InscripcionesController extends Controller
         $fecha = date('d-m-Y');
         $datos = $res[0];
 
-        $pdf = PDF::loadView('/Inscripciones/constancia', compact('datos','fecha'));
+        $pdf = PDF::loadView('/inscripciones/constancia', compact('datos','fecha'));
         //$pdf->stream($codigo);
         //$pdf->output();
         $pdf->setPaper('A4', 'portrait');
