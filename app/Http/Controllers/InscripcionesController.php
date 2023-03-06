@@ -273,6 +273,30 @@ class InscripcionesController extends Controller
         return response()->json($this->response, 200);
     }
 
+
+    public function constanciaIngresante($dni)
+    {
+
+        $res = DB::select('select * from ingresantes where dni =' . $dni . ';');
+
+        $fecha = date('d-m-Y');
+        $datos = $res[0];
+
+        $pdf = PDF::loadView('/PreInscripcion/constancia', compact('datos', 'fecha'));
+        $pdf->setPaper('A4', 'portrait');
+        //$output = $pdf->output();
+        
+        $pdf->output();
+        $output = $pdf->output();
+        file_put_contents(public_path().'/documentos/ingresantes/'.$dni.'.pdf', $output);
+        return $pdf->download('mi-constancia-de-inscripcion.pdf');
+
+    }
+
+
+
+
+
     public function getPostulantesInscritosDni($dni){
 
         return $res =DB::insert('SELECT  
