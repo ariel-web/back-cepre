@@ -142,3 +142,6 @@ Route::get('/postulantes-inscritos/{dni}', [InscripcionesController::class, 'get
 Route::get('/invitacion', [MedicoController::class, 'invitacion']);
 Route::get('/invitacion-admi', [MedicoController::class, 'invitacionadministrativos']);
 
+
+Route::get('/get-puntaje/{dni}', [InscripcionesController::class, 'getPuntaje']);
+

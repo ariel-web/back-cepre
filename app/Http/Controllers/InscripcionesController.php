@@ -314,4 +314,14 @@ class InscripcionesController extends Controller
     }
 
 
+
+    public function getPuntaje($dni){
+        $res = DB::select('SELECT * FROM resultados WHERE dni = '.$dni.';');
+
+        $this->response['estado'] = true;
+        $this->response['datos'] = $res[0];
+        return response()->json($this->response, 200);
+    }
+
+
 }
