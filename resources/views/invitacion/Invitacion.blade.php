@@ -20,7 +20,10 @@
                     <div>VICERRECTORADO ACADÉMICO</div>
                     <div>DIRECCIÓN DE ADMISIÓN</div>
                 </td>
-                <td align="right" rowspan="1"> <img src="{{ public_path('imagenes/logoDAD.jpg')}}"  width="70"></td>
+                <td align="right" rowspan="1"> 
+                    <img src="{{ public_path('imagenes/logoDAD.jpg')}}"  width="70">
+                    <div>{{ $id }}</div>
+                </td>
             </tr>
         </table>
         <table style="width:100%; bakcground:orange; margin-top:15px;">
@@ -37,13 +40,12 @@
             <tr>
                 <td>
                     <div style="text-align:center; font-size:19pt; padding:0px 20px; font-style: italic;">
-                        El director de la Dirección de Admisión, 
-                        Dr. Héctor Velázquez Sagua, se complace en invitarle 
+                        La Dirección de Admisión, se complace en invitarle 
                         al sorteo de docentes nombrados 
-                        para la participación el proceso de examen
+                        para la participación en el
                     </div>
                     <div style="text-align:center; font-size:19pt; padding:0px 20px; font-style: italic;">
-                        CEPREUNA 2023-I
+                        EXAMEN GENERAL 2023-I                        
                     </div>
                 </td>
             </tr>
@@ -53,7 +55,7 @@
             <tr>
                 <td align="left">
                     <div style="font-size:17pt; padding:0px 20px; font-style: italic;">
-                        <div><span style="font-weight:bold;">Fecha de sorteo: </span>viernes, 3 de marzo de 2023 </div>
+                        <div><span style="font-weight:bold;">Fecha de sorteo: </span>viernes, 17 de marzo de 2023 </div>
                         <div><span style="font-weight:bold;">Hora: </span> 5:30 am a 6:00 am </div>
                         <div><span style="font-weight:bold;">Lugar de Sorteo</span>Auditorio Magno</div>
                     </div>
@@ -66,8 +68,8 @@
         <table style="width:100%; bakcground:orange; margin-top:10px;">
             <tr>
                 <td style="width: 400px;">
-                    <div style="font-size:15pt; padding:0px 20px; font-style: italic;">
-                        <div><span style="font-weight:bold;">Para: </span><span style="text-transform: uppercase;">{{$nombre}}</span></div>
+                    <div style="font-size:16pt; padding:0px 20px; font-style: italic;">
+                        <div><span style="font-weight:bold;">Para: </span><span style="text-transform: uppercase; font-weight:bold;">{{$nombre}}</span></div>
                         <div><span style="font-weight:bold;">Escuela: </span>{{$escuela}}</div>
                     </div>
                 </td>
