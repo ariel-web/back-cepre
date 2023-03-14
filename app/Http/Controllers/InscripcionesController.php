@@ -316,7 +316,7 @@ class InscripcionesController extends Controller
 
 
     public function getPuntaje($dni){
-        $res = DB::select('SELECT * FROM resultados WHERE dni = '.$dni.';');
+        $res = DB::select('SELECT dni, paterno, materno, nombres, puntaje, apto as ingreso, programa FROM resultados WHERE dni = '.$dni.';');
 
         $this->response['estado'] = true;
         $this->response['datos'] = $res[0];
