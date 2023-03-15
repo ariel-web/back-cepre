@@ -27,4 +27,4 @@ Route::get('/constancia-inscripcion2/{dni}',[InscripcionesController::class, 'co
 
 Route::get('/ingresantes-cepre/{dni}',[InscripcionesController::class, 'constanciaIngresante']);
 
-Route::get('/get-puntaje/{dni}', [InscripcionesController::class, 'getPuntaje']);
+Route::get('/get-puntaje', [InscripcionesController::class, 'getPuntaje']);
