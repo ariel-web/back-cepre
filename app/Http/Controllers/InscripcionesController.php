@@ -273,6 +273,30 @@ class InscripcionesController extends Controller
         return response()->json($this->response, 200);
     }
 
+
+    public function constanciaIngresante($dni)
+    {
+
+        $res = DB::select('select * from ingresantes where dni =' . $dni . ';');
+
+        $fecha = date('d-m-Y');
+        $datos = $res[0];
+
+        $pdf = PDF::loadView('/PreInscripcion/constancia', compact('datos', 'fecha'));
+        $pdf->setPaper('A4', 'portrait');
+        //$output = $pdf->output();
+        
+        $pdf->output();
+        $output = $pdf->output();
+        file_put_contents(public_path().'/documentos/ingresantes/'.$dni.'.pdf', $output);
+        return $pdf->download('mi-constancia-de-inscripcion.pdf');
+
+    }
+
+
+
+
+
     public function getPostulantesInscritosDni($dni){
 
         return $res =DB::insert('SELECT  
@@ -283,6 +307,25 @@ class InscripcionesController extends Controller
         JOIN programa_de_estudios ON programa_de_estudios.id = pre_inscripcion.id_programa_estudios 
         JOIN postulantes ON pre_inscripcion.id_postulante = postulantes.id 
         WHERE postulantes.nro_doc = '.$dni.';');
+
+        $this->response['estado'] = true;
+        $this->response['datos'] = $res[0];
+        return response()->json($this->response, 200);
+    }
+
+
+
+    public function getPuntaje($dni){
+        $res = DB::select('SELECT dni, paterno, materno, nombres, puntaje, apto as ingreso, programa FROM resultados WHERE dni = '.$dni.';');
+
+        $this->response['estado'] = true;
+        $this->response['datos'] = $res[0];
+        return response()->json($this->response, 200);
+    }
+
+    
+    public function getPuntajeCepre($dni){
+        $res = DB::select('SELECT dni, paterno, materno, nombres, puntaje, apto as ingreso, programa FROM resultados WHERE dni = '.$dni.';');
 
         $this->response['estado'] = true;
         $this->response['datos'] = $res[0];

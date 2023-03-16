@@ -37,10 +37,9 @@
             <tr>
                 <td>
                     <div style="text-align:center; font-size:19pt; padding:0px 20px; font-style: italic;">
-                        El director de la Dirección de Admisión, 
-                        Dr. Héctor Velásquez Sagua, se complace en invitarle 
-                        al sorteo de personal no docente (Administrativos) 
-                        para la participación el proceso de examen CEPREUNA 2023-I
+                        La Dirección de Admisión, se complace en invitarle 
+                        al sorteo de Administrativos 
+                        para la participación en el proceso de examen GENERAL 2023-I
                     </div>
 
                 </td>
@@ -51,7 +50,7 @@
             <tr>
                 <td align="left">
                     <div style="font-size:17pt; padding:0px 20px; font-style: italic;">
-                        <div><span style="font-weight:bold;">Fecha de sorteo: </span>Jueves, 2 de marzo de 2023 </div>
+                        <div><span style="font-weight:bold;">Fecha de sorteo: </span>Jueves, 16 de marzo de 2023 </div>
                         <div><span style="font-weight:bold;">Hora: </span> 3:00 p.m. </div>
                         <div><span style="font-weight:bold;">Lugar de Sorteo:</span> Auditorio Magno</div>
                     </div>
@@ -64,7 +63,7 @@
         <table style="width:100%; bakcground:orange; margin-top:10px;">
             <tr>
                 <td style="width: 400px;">
-                    <div style="font-size:15pt; padding:0px 20px; font-style: italic;">
+                    <div style="font-size:17pt; padding:0px 20px; font-style: italic;">
                         <div><span style="font-weight:bold;">Para: </span><span style="text-transform: uppercase;">{{$nombre}}</span></div>
                         <div><span style="font-weight:bold;">Condición: </span>{{$escuela}}</div>
                     </div>

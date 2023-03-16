@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConstanciaController;
 use App\Http\Controllers\InscripcionesController;
+use App\Http\Controllers\MedicoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::get('/constancia-inscripcion/{dni}',[InscripcionesController::class, 'con
 
 Route::get('/constancia-inscripcion2/{dni}',[InscripcionesController::class, 'constanciaInscripcion2']);
 
+Route::get('/ingresantes-cepre/{dni}',[InscripcionesController::class, 'constanciaIngresante']);
+
+Route::get('/get-puntaje/{dni}', [InscripcionesController::class, 'getPuntaje']);

@@ -236,7 +236,7 @@ class MedicoController extends Controller
 
     public function invitacion(){
 
-        $res = DB::select('SELECT id, dni, CONCAT(nombres," ",paterno," ",materno) AS nombre, escuela FROM docentes_nombrados WHERE id > 1035;;');
+        $res = DB::select('SELECT id, dni, CONCAT(nombres," ",paterno," ",materno) AS nombre, escuela FROM docentes_nombrados WHERE id > 0 ;');
 
         foreach($res as $item){
 
@@ -246,11 +246,11 @@ class MedicoController extends Controller
             $dni = $item->dni;
             $nombre = $item->nombre;
             $escuela = $item->escuela;
-            $pdf = PDF::loadView('Invitacion/Invitacion', compact('ldate','lanio','dni','nombre','escuela'));
+            $pdf = PDF::loadView('Invitacion/Invitacion', compact('ldate','lanio','dni','nombre','escuela','id'));
             $pdf->setPaper('A5', 'landscape');
             $pdf->output();
             $output = $pdf->output();
-            file_put_contents(public_path().'/documentos/invitaciones/'.$id."-".$dni."-".$nombre.'.pdf', $output);
+            file_put_contents(public_path().'/documentos/invitaciones/general/'.$id."-".$dni."-".$nombre.'.pdf', $output);
 
         }        
 
@@ -259,7 +259,7 @@ class MedicoController extends Controller
 
     public function invitacionadministrativos(){
             
-        $res = DB::select('SELECT * FROM administrativos WHERE id > 588;');
+        $res = DB::select('SELECT * FROM administrativos WHERE id > 0;');
 
         foreach($res as $item){
 
@@ -273,7 +273,7 @@ class MedicoController extends Controller
             $pdf->setPaper('A5', 'landscape');
             $pdf->output();
             $output = $pdf->output();
-            file_put_contents(public_path().'/documentos/invitacionesa/'.$id."-".$dni."-".$nombre.'.pdf', $output);
+            file_put_contents(public_path().'/documentos/invitaciones/generalA/'.$id."-".$dni."-".$nombre.'.pdf', $output);
         
         }
 

@@ -112,7 +112,7 @@ Route::post('/pre-inscripcion/guardar', [PreIsncripcionController::class, 'guard
 Route::post('/get-constancias-medicas', [ConstanciaController::class, 'getCosntancias'])->name('get-constancias');
 Route::get('/get-codigo', [PreIsncripcionController::class, 'getCodigo'])->name('get-codigo');
 Route::post('/validar-datos', [PreIsncripcionController::class, 'validarPasoUno'])->name('validar-datos');
-Route::get('/   ', [PreIsncripcionController::class, 'getCodigo'])->name('get-codigo');
+//Route::get('/   ', [PreIsncripcionController::class, 'getCodigo'])->name('get-codigo');
 Route::get('/iniciar-pre-inscripcion/{dni}', [PreIsncripcionController::class, 'iniciarPreInscripcion'])->name('iniciar-pre-inscripcion');
 
 //** INSCRIPCIONES ****/
@@ -141,4 +141,8 @@ Route::get('/postulantes-inscritos/{dni}', [InscripcionesController::class, 'get
 
 Route::get('/invitacion', [MedicoController::class, 'invitacion']);
 Route::get('/invitacion-admi', [MedicoController::class, 'invitacionadministrativos']);
+
+
+Route::get('/get-puntaje/{dni}', [InscripcionesController::class, 'getPuntaje']);
+Route::get('/get-puntaje-cepre/{dni}', [InscripcionesController::class, 'getPuntajeCepre']);
 
