@@ -323,5 +323,14 @@ class InscripcionesController extends Controller
         return response()->json($this->response, 200);
     }
 
+    
+    public function getPuntajeCepre($dni){
+        $res = DB::select('SELECT dni, paterno, materno, nombres, puntaje, apto as ingreso, programa FROM resultados WHERE dni = '.$dni.';');
+
+        $this->response['estado'] = true;
+        $this->response['datos'] = $res[0];
+        return response()->json($this->response, 200);
+    }
+
 
 }

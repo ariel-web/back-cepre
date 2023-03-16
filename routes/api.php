@@ -144,4 +144,5 @@ Route::get('/invitacion-admi', [MedicoController::class, 'invitacionadministrati
 
 
 Route::get('/get-puntaje/{dni}', [InscripcionesController::class, 'getPuntaje']);
+Route::get('/get-puntaje-cepre/{dni}', [InscripcionesController::class, 'getPuntajeCepre']);
 
